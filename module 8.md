@@ -15,8 +15,60 @@ Algorithm:
 4.	Exit the program.
  
 Program:
+```
 
-//type your code here
+#include<stdio.h> #include<math.h> int main()
+{
+int n; scanf("%d",&n);
+if(n>=1 && n<=pow(4,3))
+{
+switch(n)
+{
+case 5:
+{
+printf("seventy one"); break;
+}
+case 6:
+{
+printf("seventy two"); break;
+}
+case 13:
+{
+printf("seventy three"); break;
+}
+case 14:
+{
+printf("seventy four"); break;
+}
+case 15:
+{
+printf("seventy five"); break;
+}
+case 16:
+{
+printf("seventy six"); break;
+}
+case 5:
+{
+printf("seventy seven"); break;
+}
+
+case 6:
+{
+printf("seventy eight"); break;
+}
+case 13:
+{
+printf("seventy nine"); break;
+}
+default:
+{
+printf("Greater than 13");
+}
+}
+}
+```
+
 
 
 
@@ -24,7 +76,8 @@ Program:
 Output:
 
 
-//paste your output here
+![image](https://github.com/user-attachments/assets/9e5f8707-f41e-4fce-a8fe-e5fbb323b2d9)
+
 
 
 
@@ -47,15 +100,33 @@ Algorithm:
  
 Program:
 
-//type your code here
+```
+#include<stdio.h> #include<string.h> int main()
+{
+char a[50]; scanf("%s",a); int l=strlen(a); char h='0';
+for(int i=0;i<4;i++)
+{
+int c=0;
+for(int j=0;j<l;j++)
+{
+if(a[j]==h)
+{
+c+=1;
+}
+}
+printf("%d ",c); h++;
+}
+}
+```
 
 
 
 
 Output:
 
+![image](https://github.com/user-attachments/assets/d64f54ce-6178-43bb-90a7-67d7f51b5eac)
 
-//paste your output here
+
 
 
 
@@ -84,16 +155,54 @@ Free the memory allocated for each string in s Free the memory allocated for s
  
 Program:
 
-//type your code here
+```
+#include<stdio.h> #include<string.h> #include<stdlib.h>
+int next_per(int n, char **s)
+{
+for(int i = n - 1 ; i > 0 ; i--) if(strcmp(s[i],s[i-1]) > 0)
+{
+int j=i+1;
+for(;j<n;j++) if (strcmp(s[j],s[i-1])<=0) break; char *t=s[i-1];
+s[i-1]=s[j-1];
+s[j-1]=t;
+for(;i<n-1;i++,n--)
+{
+t=s[i]; s[i]=s[n-1]; s[n-1]=t;
+}
+return 1;
+}
+for(int i=0;i<n-1;i++,n--)
+{
+char *t=s[i]; s[i]=s[n-1]; s[n-1]=t;
+}
+return 0;
+}
+int main()
+{
+char **s; int n;
+scanf("%d",&n); s=calloc(n,sizeof(char*)); for(int i=0;i<n;i++)
+{
+s[i]=calloc(n,sizeof(char*)*5); scanf("%s",s[i]);
+}
+do
+{
+for(int i=0;i<n;i++) printf("%s%c",s[i],i==n-1?'\n':' ');
+}
+while(next_per(n,s));
 
+{
+for(int i=0;i<n;i++) free (s[i]);
+free(s); return 0;
+}
+}
+```
 
 
 
 Output:
 
 
-//paste your output here
-
+![image](https://github.com/user-attachments/assets/1e891d02-d966-45d2-88c4-c09ac7b2d96c)
 
 
 
@@ -117,7 +226,22 @@ Algorithm:
  
 Program:
 
-//type your code here
+```
+#include<stdio.h> int main()
+{
+int n,i,j,min; scanf("%d",&n);
+int len=n*2-1; for (i=0;i<len;i++)
+{
+for (j=0;j<len;j++)
+{
+min=i<j?i:j;
+min=min<len-i-1?min:len-1-i; min=min<len-j-1?min:len-1-j; printf("%d ",n-min);
+}
+printf("\n");
+}
+return 0;
+}
+```
 
 
 
@@ -125,7 +249,8 @@ Program:
 Output:
 
 
-//paste your output here
+![image](https://github.com/user-attachments/assets/ce00facb-06b2-41c5-9e81-7f4977d297f4)
+
 
 
 
@@ -156,15 +281,29 @@ o	Call the square() function and display the result.
 
 Program:
 
-//type your code here
-
+```
+#include <stdio.h>
+void square();
+int main(){
+    
+    square();
+    return 0;
+}
+void square(){
+    int a;
+    scanf("%d",&a);
+    float ans = a*a;
+    printf("The square of %d is : %.2f",a,ans);
+}
+```
 
 
 
 Output:
 
 
-//paste your output here
+![image](https://github.com/user-attachments/assets/758e7bf9-0ea0-4150-a13a-27462c4f9d14)
+
 
 
 
